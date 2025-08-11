@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="home" className="relative bg-gradient-to-br from-blue-50 to-indigo-100 pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section id="home" className="relative bg-gradient-to-br from-blue-50 to-indigo-100 pt-16 sm:pt-20 lg:pt-24 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8" dir={dir}>
