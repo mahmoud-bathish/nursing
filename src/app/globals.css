@@ -49,6 +49,205 @@ html {
   scroll-behavior: smooth;
 }
 
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .rtl\:text-right {
+  text-align: right;
+}
+
+[dir="rtl"] .rtl\:text-left {
+  text-align: left;
+}
+
+[dir="rtl"] .rtl\:ml-auto {
+  margin-left: auto;
+}
+
+[dir="rtl"] .rtl\:mr-auto {
+  margin-right: auto;
+}
+
+[dir="rtl"] .rtl\:right-auto {
+  right: auto;
+}
+
+[dir="rtl"] .rtl\:left-auto {
+  left: auto;
+}
+
+/* Arabic Font Support */
+[dir="rtl"] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* RTL-specific spacing adjustments */
+[dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 1rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 1.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-right: 2rem;
+  margin-left: 0;
+}
+
+/* RTL-specific padding adjustments */
+[dir="rtl"] .pl-4 {
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .pr-4 {
+  padding-right: 0;
+  padding-left: 1rem;
+}
+
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-3 {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+[dir="rtl"] .mr-3 {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+/* RTL-specific positioning for floating buttons */
+[dir="rtl"] .fixed.bottom-6.right-6 {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* RTL-specific tooltip positioning */
+[dir="rtl"] .absolute.right-20 {
+  right: auto;
+  left: 5rem;
+}
+
+[dir="rtl"] .border-l-4 {
+  border-left: 0;
+  border-right: 4px solid;
+}
+
+[dir="rtl"] .border-l-8 {
+  border-left: 0;
+  border-right: 8px solid;
+}
+
+/* RTL-specific arrow positioning */
+[dir="rtl"] .left-full {
+  left: auto;
+  right: 100%;
+}
+
+[dir="rtl"] .border-l-gray-900 {
+  border-left-color: transparent;
+  border-right-color: rgb(17 24 39);
+}
+
+[dir="rtl"] .border-t-transparent {
+  border-top-color: transparent;
+}
+
+[dir="rtl"] .border-b-transparent {
+  border-bottom-color: transparent;
+}
+
+/* RTL-specific carousel navigation */
+[dir="rtl"] .carousel-arrow-left {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .carousel-arrow-right {
+  transform: scaleX(-1);
+}
+
+/* RTL-specific flexbox adjustments */
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .justify-start {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .justify-end {
+  justify-content: flex-end;
+}
+
+/* RTL-specific text alignment for specific elements */
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* RTL-specific margin adjustments for specific elements */
+[dir="rtl"] .ml-2 {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+[dir="rtl"] .mr-2 {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+[dir="rtl"] .ml-3 {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+[dir="rtl"] .mr-3 {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+[dir="rtl"] .ml-4 {
+  margin-left: 0;
+  margin-right: 1rem;
+}
+
+[dir="rtl"] .mr-4 {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {

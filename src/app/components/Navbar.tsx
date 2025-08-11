@@ -1,8 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
+  const { t, dir } = useLanguage();
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -30,21 +33,21 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', href: '#home' },
-    { id: 'about', label: 'About', href: '#about' },
-    { id: 'services', label: 'Services', href: '#services' },
-    { id: 'testimonials', label: 'Testimonials', href: '#testimonials' },
-    { id: 'contact', label: 'Contact', href: '#contact' }
+    { id: 'home', label: t.nav.home, href: '#home' },
+    { id: 'about', label: t.nav.about, href: '#about' },
+    { id: 'services', label: t.nav.services, href: '#services' },
+    { id: 'testimonials', label: t.nav.testimonials, href: '#testimonials' },
+    { id: 'contact', label: t.nav.contact, href: '#contact' }
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-white shadow-lg sticky top-0 z-50" dir={dir}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <a href="#home" className="flex items-center hover:opacity-80 transition duration-300">
-                             <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-3 p-2">
+                             <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-3 p-2 rtl:mr-0 rtl:ml-3">
                  <span className="text-white font-bold text-lg">NNC</span>
                </div>
               <span className="text-xl font-bold text-gray-900">NexusNurseCare</span>
@@ -52,8 +55,8 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
+          <div className="hidden md:flex items-center">
+            {navItems.map((item, index) => (
               <a
                 key={item.id}
                 href={item.href}
@@ -61,11 +64,14 @@ export default function Navbar() {
                   activeSection === item.id
                     ? 'text-blue-600 border-b-2 border-blue-600'
                     : 'text-gray-700 hover:text-blue-600'
-                }`}
+                } ${index < navItems.length - 1 ? 'mr-8 rtl:mr-0 rtl:ml-8' : ''}`}
               >
                 {item.label}
               </a>
             ))}
+            <div className="ml-8 rtl:ml-0 rtl:mr-8">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -99,7 +105,7 @@ export default function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block py-3 px-4 rounded-lg transition duration-300 font-medium ${
                     activeSection === item.id
-                      ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600'
+                      ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-600 rtl:border-l-0 rtl:border-r-4'
                       : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
                   }`}
                 >

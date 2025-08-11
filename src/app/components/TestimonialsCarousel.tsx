@@ -1,36 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TestimonialsCarousel() {
+  const { t, dir } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Elissar",
-      role: "Pregnancy patient",
-      initials: "EL",
-      color: "blue",
-      text: "They gave me 30 intramuscular injections during my pregnancy, and I honestly can't thank them enough. Their gentle hands made it so much easier for me. I truly appreciate their care and kindness."
-    },
-    {
-      id: 2,
-      name: "Ahmad",
-      role: "Post-surgery patient",
-      initials: "AH",
-      color: "green",
-      text: "I had stitches removed after foot surgery (metal rod insertion), and I'm so grateful for the nurses' gentle hands and calm presence. They made the whole experience smooth and pain-free. Thank you for your excellent care!"
-    },
-    {
-      id: 3,
-      name: "Fatat",
-      role: "Cancer patient",
-      initials: "FA",
-      color: "purple",
-      text: "As a breast cancer patient, I developed a painful sore on my lower back from extended bed rest. I'm incredibly thankful for the nurses' gentle and dedicated care, which helped relieve my pain and speed up my healing."
-    }
-  ];
+  const testimonials = t.testimonials.testimonials;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
@@ -58,7 +35,7 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" dir={dir}>
       {/* Desktop Grid View */}
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {testimonials.map((testimonial) => (
@@ -76,7 +53,7 @@ export default function TestimonialsCarousel() {
               "{testimonial.text}"
             </p>
             <div className="flex items-center">
-              <div className={`w-12 h-12 ${getColorClasses(testimonial.color)} rounded-full flex items-center justify-center mr-4`}>
+              <div className={`w-12 h-12 ${getColorClasses(testimonial.color)} rounded-full flex items-center justify-center mr-4 rtl:mr-0 rtl:ml-4`}>
                 <span className="font-semibold">{testimonial.initials}</span>
               </div>
               <div>
@@ -111,7 +88,7 @@ export default function TestimonialsCarousel() {
                     "{testimonial.text}"
                   </p>
                   <div className="flex items-center">
-                    <div className={`w-12 h-12 ${getColorClasses(testimonial.color)} rounded-full flex items-center justify-center mr-4`}>
+                    <div className={`w-12 h-12 ${getColorClasses(testimonial.color)} rounded-full flex items-center justify-center mr-4 rtl:mr-0 rtl:ml-4`}>
                       <span className="font-semibold">{testimonial.initials}</span>
                     </div>
                     <div>
@@ -126,10 +103,10 @@ export default function TestimonialsCarousel() {
         </div>
 
         {/* Carousel Navigation */}
-        <div className="flex justify-center items-center mt-8 space-x-4">
+        <div className="flex justify-center items-center mt-8 space-x-4" dir={dir}>
           <button 
             onClick={prevSlide}
-            className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition duration-300"
+            className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition duration-300 carousel-arrow-left"
           >
             <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -151,7 +128,7 @@ export default function TestimonialsCarousel() {
 
           <button 
             onClick={nextSlide}
-            className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition duration-300"
+            className="w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition duration-300 carousel-arrow-right"
           >
             <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
