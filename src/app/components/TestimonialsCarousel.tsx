@@ -8,27 +8,27 @@ export default function TestimonialsCarousel() {
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Mitchell",
-      role: "Post-surgery patient",
-      initials: "SM",
+      name: "Elissar",
+      role: "Pregnancy patient",
+      initials: "EL",
       color: "blue",
-      text: "The care I received was exceptional. The nurse was not only professional but also incredibly compassionate. She made my recovery so much easier."
+      text: "They gave me 30 intramuscular injections during my pregnancy, and I honestly can't thank them enough. Their gentle hands made it so much easier for me. I truly appreciate their care and kindness."
     },
     {
       id: 2,
-      name: "John Davis",
-      role: "Family member",
-      initials: "JD",
+      name: "Ahmad",
+      role: "Post-surgery patient",
+      initials: "AH",
       color: "green",
-      text: "Having a professional nurse care for my elderly mother has been a blessing. The attention to detail and genuine care is remarkable."
+      text: "I had stitches removed after foot surgery (metal rod insertion), and I'm so grateful for the nurses' gentle hands and calm presence. They made the whole experience smooth and pain-free. Thank you for your excellent care!"
     },
     {
       id: 3,
-      name: "Maria Wilson",
-      role: "Chronic care patient",
-      initials: "MW",
+      name: "Fatat",
+      role: "Cancer patient",
+      initials: "FA",
       color: "purple",
-      text: "The health education sessions were incredibly helpful. I now feel confident managing my condition and medications properly."
+      text: "As a breast cancer patient, I developed a painful sore on my lower back from extended bed rest. I'm incredibly thankful for the nurses' gentle and dedicated care, which helped relieve my pain and speed up my healing."
     }
   ];
 
