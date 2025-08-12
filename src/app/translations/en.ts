@@ -166,8 +166,8 @@ export const en = {
 
   // Footer
   footer: {
-    crafted: 'Crafted with',
-    by: 'by',
+    crafted: 'Crafted by',
+    by: '',
     developer: 'Mahmoud Bathich',
     copyright: '© 2025 NexusNurseCare. All rights reserved.'
   },

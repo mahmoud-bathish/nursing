@@ -4,10 +4,15 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TestimonialsCarousel() {
-  const { t, dir } = useLanguage();
+  const { t, dir, language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const testimonials = t.testimonials.testimonials;
+
+  // Reset slide when language changes
+  useEffect(() => {
+    setCurrentSlide(0);
+  }, [language]);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
@@ -67,38 +72,32 @@ export default function TestimonialsCarousel() {
 
       {/* Mobile Carousel */}
       <div className="md:hidden">
-        <div className="overflow-hidden">
-          <div 
-            className="flex transition-transform duration-300 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-          >
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="w-full flex-shrink-0 px-2">
-                <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-                  <div className="flex items-center mb-4">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="flex items-center">
-                    <div className={`w-12 h-12 ${getColorClasses(testimonial.color)} rounded-full flex items-center justify-center mr-4 rtl:mr-0 rtl:ml-4`}>
-                      <span className="font-semibold">{testimonial.initials}</span>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                      <p className="text-gray-500 text-sm">{testimonial.role}</p>
-                    </div>
-                  </div>
+        <div className="relative">
+          {/* Current Testimonial */}
+          <div className="px-2">
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+              <div className="flex items-center mb-4">
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
               </div>
-            ))}
+              <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                "{testimonials[currentSlide].text}"
+              </p>
+              <div className="flex items-center">
+                <div className={`w-12 h-12 ${getColorClasses(testimonials[currentSlide].color)} rounded-full flex items-center justify-center mr-4 rtl:mr-0 rtl:ml-4`}>
+                  <span className="font-semibold">{testimonials[currentSlide].initials}</span>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900">{testimonials[currentSlide].name}</h4>
+                  <p className="text-gray-500 text-sm">{testimonials[currentSlide].role}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

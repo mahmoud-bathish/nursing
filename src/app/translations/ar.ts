@@ -166,8 +166,8 @@ export const ar = {
 
   // Footer
   footer: {
-    crafted: 'صمم بـ',
-    by: 'بواسطة',
+    crafted: 'صمم بواسطة',
+    by: '',
     developer: 'محمود بطحيش',
     copyright: '© 2025 NexusNurseCare. جميع الحقوق محفوظة.'
   },

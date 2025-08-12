@@ -41,7 +41,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50" dir={dir}>
+    <nav className="bg-white shadow-lg sticky top-12 z-40" dir={dir}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -112,6 +112,11 @@ export default function Navbar() {
                   {item.label}
                 </a>
               ))}
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
+              </div>
             </div>
           </div>
         )}
