@@ -47,6 +47,7 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 112px; /* 48px (developer section) + 64px (navbar) */
 }
 
 /* RTL Support */
