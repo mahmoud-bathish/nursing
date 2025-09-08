@@ -12,7 +12,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'services', 'testimonials', 'contact'];
-      const scrollPosition = window.scrollY + 100; // Offset for better detection
+      const scrollPosition = window.scrollY + 80; // Match the scroll-padding-top value
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -28,6 +28,9 @@ export default function Navbar() {
       }
     };
 
+    // Run once on mount to set initial active section
+    handleScroll();
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
